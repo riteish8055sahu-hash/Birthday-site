@@ -1,0 +1,51 @@
+﻿document.getElementById("start-btn").addEventListener("click", function() {
+    document.getElementById("start-screen").style.display = "none";
+    document.getElementById("celebration").style.display = "block";
+    document.getElementById("birthday-song").play();
+    startSlideshow();
+    startConfetti();
+});
+
+// Slideshow
+let slideIndex = 0;
+function startSlideshow() {
+    const slides = document.querySelectorAll(".slide");
+    setInterval(() => {
+        slides[slideIndex].classList.remove("active");
+        slideIndex = (slideIndex + 1) % slides.length;
+        slides[slideIndex].classList.add("active");
+    }, 3000);
+}
+
+// Confetti
+function startConfetti() {
+    const canvas = document.getElementById("confetti");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let pieces = [];
+    for (let i = 0; i < 150; i++) {
+        pieces.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 5 + 2,
+            speed: Math.random() * 3 + 1,
+            color: `hsl(${Math.random() * 360}, 100%, 50%)`
+        });
+    }
+
+    function update() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let p of pieces) {
+            p.y += p.speed;
+            if (p.y > canvas.height) p.y = -p.size;
+            ctx.fillStyle = p.color;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        requestAnimationFrame(update);
+    }
+    update();
+}

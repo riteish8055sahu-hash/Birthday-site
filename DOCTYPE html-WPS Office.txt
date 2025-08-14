@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ila's Birthday</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Start Screen -->
+    <div id="start-screen">
+        <h1>Happy Birthday Ila 🎉</h1>
+        <button id="start-btn">Start Celebration</button>
+    </div>
+
+    <!-- Celebration -->
+    <div id="celebration" style="display:none;">
+        <audio id="birthday-song" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+
+        <div class="love-letter">
+            <p>
+                Happy birthday dear, i wanna make this day memorable to you.. so i m here again 😁  
+                I love you alot, i knw we can't celebrate your birthday together this time but here is the solution,  
+                i knw it is virtual celebration you knw this is actually what i can do from here..  
+                I love you alot... So keep smiling n enjoy your celebration.... yayyyyyyy ❤️❤️
+            </p>
+        </div>
+
+        <!-- Cake -->
+        <div class="cake">
+            🎂
+        </div>
+
+        <!-- Slideshow -->
+        <div class="slideshow">
+            <img src="images/slide1.jpg" class="slide active">
+            <img src="images/slide2.jpg" class="slide">
+            <img src="images/slide3.jpg" class="slide">
+        </div>
+
+        <!-- Confetti -->
+        <canvas id="confetti"></canvas>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
